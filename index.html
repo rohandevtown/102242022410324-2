@@ -15,8 +15,156 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+
+    <!-- CDN - Font Awesome Icos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
+    <!-- Mobile Add New Item -->
+    <div class="add__new__btn__mobile__only">
+      <button
+        class="btn btn-primary d-flex align-items-center gap-2"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#addNewModal"
+      >
+        <i class="fa-solid fa-plus"></i>Add New Item
+      </button>
+    </div>
+
+    <!-- Add New Item Modal -->
+    <div
+      class="modal fade"
+      id="addNewModal"
+      tabindex="-1"
+      aria-labelledby="addNewModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addNewModalLabel">Add New Task</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="imageUrl" class="form-label">Image URL</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  id="imageUrl"
+                  aria-describedby="imageOpt"
+                  placeholder="https://rohanKinnal.com/"
+                />
+                <div id="imageOpt" class="form-text">
+                  Its an optional filed for us!
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="taskTitle" class="form-label">Task Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="taskTitle"
+                  placeholder="pls enter the title here"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="tags" class="form-label">Task Type</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tags"
+                  placeholder="pls enter the type here"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="taskDescription" class="form-label"
+                  >Task Description</label
+                >
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="taskDescription"
+                  placeholder="pls enter the description here"
+                  required
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Show Task Modal -->
+
+    <!-- <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#showTask"
+    >
+      Launch demo modal
+    </button> -->
+    <div
+      class="modal fade"
+      id="showTask"
+      tabindex="-1"
+      aria-labelledby="showTaskLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="showTaskLabel">Task Details</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body task__modal__body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -39,12 +187,42 @@
             </li>
           </ul>
 
-          <button class="btn btn-outline-success" type="submit">
-            Add New Item
+          <button
+            class="btn btn-primary d-flex align-items-center gap-2"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#addNewModal"
+          >
+            <i class="fa-solid fa-plus"></i>Add New Item
           </button>
         </div>
       </div>
     </nav>
+
+    <div class="container">
+      <section class="mt-4">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="input-group flex-nowrap shadow-lg">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Search your tasks here.."
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+              />
+              <span class="input-group-text" id="addon-wrapping">
+                <i class="fas fa-search"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <div class="row task__contents"></div>
+      </section>
+    </div>
 
     <!-- Custom JS -->
     <script src="index.js"></script>
